@@ -19,14 +19,4 @@ describe Office do
 
     expect(office.errors[:name]).to include("can't be blank")
   end
-
-  it "is invalid without a start_date" do
-    office = Office.new(
-      name: 'Gubernur DKI Jakarta',
-      start_date: nil
-    )
-    office.valid?
-    
-    expect(office.errors[:start_date]).to include("can't be blank")
-  end
 end
