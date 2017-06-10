@@ -16,6 +16,7 @@ describe Office do
       start_date: Date.today
     )
     office.valid?
+
     expect(office.errors[:name]).to include("can't be blank")
   end
 
@@ -25,6 +26,7 @@ describe Office do
       start_date: nil
     )
     office.valid?
+    
     expect(office.errors[:start_date]).to include("can't be blank")
   end
 end
