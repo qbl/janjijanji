@@ -16,8 +16,6 @@
     <% @offices.each do |office| %>
       <tr>
         <td><%= office.name %></td>
-        <td><%= office.start_date %></td>
-        <td><%= office.thru_date %></td>
         <td><%= link_to 'Show', office %></td>
         <td><%= link_to 'Edit', edit_office_path(office) %></td>
         <td><%= link_to 'Destroy', office, method: :delete, data: { confirm: 'Are you sure?' } %></td>
