@@ -28,12 +28,24 @@ RSpec.describe TermsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Term. As you add validations to Term, be sure to
   # adjust the attributes here as well.
+  let(:person) { FactoryGirl.create(:person) }
+  let(:office) { FactoryGirl.create(:office) }
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      "person_id" => person.id,
+      "office_id" => office.id,
+      "start_date" => Date.new(2017, 10, 1),
+      "thru_date" => Date.new(2017, 9, 30)
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      person_id: nil,
+      office_id: nil,
+      start_date: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -97,14 +109,19 @@ RSpec.describe TermsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          "person_id" => person.id,
+          "office_id" => office.id,
+          "start_date" => Date.new(2017, 10, 1),
+          "thru_date" => Date.new(2027, 9, 30)
+        }
       }
 
       it "updates the requested term" do
         term = Term.create! valid_attributes
         put :update, params: {id: term.to_param, term: new_attributes}, session: valid_session
-        term.reload
-        skip("Add assertions for updated state")
+        term.reload 
+        expect(term.thru_date).to eq Date.new(2027, 9, 30)
       end
 
       it "redirects to the term" do
