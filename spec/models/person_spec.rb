@@ -1,18 +1,12 @@
 require 'rails_helper'
 
-describe Person do
-  it "is valid with a name" do
-    person = Person.new(
-      name: 'Anies Rasyid Baswedan'
-    )
-
-    expect(person).to be_valid
+RSpec.describe Person, type: :model do
+  it "has a valid factory" do
+    expect(build(:person)).to be_valid
   end
 
   it "is invalid without a name" do
-    person = Person.new(
-      name: nil
-    )
+    person = build(:person, name: nil)
     person.valid?
 
     expect(person.errors[:name]).to include("can't be blank")
