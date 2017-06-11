@@ -842,7 +842,7 @@
         <!-- masterslider -->
         <div class="master-slider ms-skin-black-2 round-skin" id="masterslider">
           <div class="ms-slide" style="z-index: 10">
-            <img src="assets/plugins/master-slider/masterslider/style/blank.gif" data-src="assets/images/bg/img2.jpg" alt="">
+            <%= image_tag "blank.gif", data: { src: "bg/img2.jpg" } %>
             <div class="ms-layer ms-promo-info color-light" style="left:15px; top:160px"
             data-effect="bottom(40)"
             data-duration="2000"
@@ -881,16 +881,9 @@
           </div>
 
           <div class="ms-slide" style="z-index: 13">
-            <img src="assets/plugins/master-slider/masterslider/style/blank.gif" data-src="assets/images/bg/img4.jpg" alt="">
+            <%= image_tag "blank.gif", data: { src: "bg/img4.jpg" } %>
 
-            <img class="ms-layer" src="assets/plugins/master-slider/masterslider/style/blank.gif" data-src="assets/images/mockup/hand-black-iphone-l.png" alt=""
-            style="bottom:-10px; left:15px; width:400px; height: auto;"
-            data-effect="bottom(100)"
-            data-duration="2000"
-            data-ease="easeOutExpo"
-            data-type="image"
-            />
-
+            <%= image_tag "blank.gif", class: "ms-layer", data: { src: "mockup/hand-black-iphone-l.jpg" }, style: "bottom:-10px; left:15px; width:400px; height: auto;" %>
             <h3 class="ms-layer ms-promo-info-in color-light"  style="left:450px; top:170px;"
             data-effect="right(40)"
             data-duration="2300"
